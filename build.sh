@@ -8,6 +8,10 @@ set -e
 # Build script for the Accera Python package
 ACCERA_ROOT=`pwd`
 
+if [ "$(uname -m)" = "aarch64" ]; then
+    export VCPKG_FORCE_SYSTEM_BINARIES=1
+fi
+
 # Ensure that submodules are cloned
 git submodule init
 git submodule update
